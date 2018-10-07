@@ -23,6 +23,10 @@ config.app.use(cors())
 config.app.use(config.express.static('public'))
 config.app.use('/api', router) // set follow Router
 
+config.app.use('/', (req, res) => {
+	res.send('Welcome to API ReactBlog')
+})
+
 var mongoose = require('mongoose')
 mongoose.connect('mongodb://judasfate:blogdhs2018@ds121118.mlab.com:21118/reactblog', { useNewUrlParser: true })
 var db = mongoose.connection
