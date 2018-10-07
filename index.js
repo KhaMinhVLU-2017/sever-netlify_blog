@@ -35,7 +35,7 @@ db.once('open', function () {
   console.log('Connect Mongodb Complete')
 })
 // setup server listen with socket
-config.server.listen(process.env.PORT || 4000, () => console.log('Server listening on port 4000!'))
+config.server.listen(process.env.PORT || 4000, () => console.log('Server listening on !'))
 
 /**
  * Socket Listento
