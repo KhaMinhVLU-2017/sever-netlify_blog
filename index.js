@@ -12,16 +12,16 @@ const router = require('./routes') // Get Router from file router
 //   cert: fs.readFileSync('key-cert.pem')
 // }
 var corsOptions = {
-  origin: 'https://socialblogjt.netlify.com/',
+  origin: 'https://socialblogjt.netlify.com',
   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
-
+config.app.use(cors(corsOptions))
 config.app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*')
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
   next()
 })
-config.app.use(cors(corsOptions))
+
 /**
  * Confirm Path into public for get Images
  */
