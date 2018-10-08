@@ -13,12 +13,12 @@ const router = require('./routes') // Get Router from file router
 // }
 
 config.app.use(function (req, res, next) {
-  // var allowedOrigins = ['https://socialblogjt.netlify.com', 'https://socialblogjt.netlify.com/*']
-  // var origin = req.headers.origin;
-  // if(allowedOrigins.indexOf(origin) > -1){
-  //      res.setHeader('Access-Control-Allow-Origin', origin)
-  // }
-  res.header('Access-Control-Allow-Origin', '*')
+  var allowedOrigins = ['https://socialblogjt.netlify.com', 'https://socialblogjt.netlify.com/*']
+  var origin = req.headers.origin;
+  if(allowedOrigins.indexOf(origin) > -1){
+       res.setHeader('Access-Control-Allow-Origin', origin)
+  }
+  // res.header('Access-Control-Allow-Origin', '*')
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
   next()
 })
