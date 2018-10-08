@@ -11,13 +11,14 @@ const router = require('./routes') // Get Router from file router
 //   key: fs.readFileSync('meo-key.pem'),
 //   cert: fs.readFileSync('key-cert.pem')
 // }
-var corsOptions = {
-  origin: 'https://socialblogjt.netlify.com',
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-}
-config.app.use(cors(corsOptions))
+
 config.app.use(function (req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*')
+  var allowedOrigins = ['https://socialblogjt.netlify.com', 'https://socialblogjt.netlify.com/*']
+  var origin = req.headers.origin;
+  if(allowedOrigins.indexOf(origin) > -1){
+       res.setHeader('Access-Control-Allow-Origin', origin)
+  }
+  // res.header('Access-Control-Allow-Origin', '*')
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
   next()
 })
