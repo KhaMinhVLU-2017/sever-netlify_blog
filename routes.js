@@ -17,7 +17,7 @@ router.use(bodyParser.urlencoded({ extended: true })) // support encoded bodies
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, 'public/images/')
+    cb(null, __dirname+'/public/images/')
   },
   filename: function (req, file, cb) {
     // console.log(file)
@@ -80,7 +80,7 @@ router.post('/Article/uploadImg', (req, res) => {
     imageUploadParam: 'imgEdtor'
   }
   // Store image.
-  FroalaEditor.Image.upload(req, '/public/uploaded/images/', options, function (err, data) {
+  FroalaEditor.Image.upload(req, __dirname +'/public/uploaded/images/', options, function (err, data) {
     // Return data.
     let link = data.link.toString().substring(7)
     if (err) {
