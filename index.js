@@ -11,7 +11,7 @@ const router = require('./routes') // Get Router from file router
 //   key: fs.readFileSync('meo-key.pem'),
 //   cert: fs.readFileSync('key-cert.pem')
 // }
-
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"
 config.app.use(function (req, res, next) {
   var allowedOrigins = ['https://socialblogjt.netlify.com', 'https://socialblogjt.netlify.com/*']
   var origin = req.headers.origin;
