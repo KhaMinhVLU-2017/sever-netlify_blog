@@ -1,4 +1,4 @@
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"
+
 const postController = require('./api/controller/postController')
 const loginCon = require('./api/controller/loginController')
 const express = require('express')
