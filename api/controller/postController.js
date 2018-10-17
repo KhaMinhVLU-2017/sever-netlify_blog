@@ -71,7 +71,11 @@ module.exports = {
   },
   getListUser: async () => {
     let getListUser = await User.find()
-    return getListUser
+    getListUser.map(item => {
+      item.password = '5E932B73AC812CA4A3837C6F1F93A7A0'
+      return item
+    })
+    return getListUser /*Deletet property password*/
   },
   removePostAriticle: async (idPost) => {
     /**
