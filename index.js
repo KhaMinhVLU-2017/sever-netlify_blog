@@ -45,7 +45,6 @@ config.server.listen(process.env.PORT || 8888, ip, () => console.log('Server lis
  */
 config.io.on('connection', (socket) => {
   console.log('a connection to sever is: ' + socket.handshake.address )
-  socket.emit('refesh', 'Test IO connect data')
   socket.on('disconnect', function () {
     console.log('user disconnected')
   });
